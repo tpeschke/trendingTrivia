@@ -1,110 +1,114 @@
-## Trending Trivia
+<img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
+
+# Project Summary
+
+In this project, you'll create the front-end of a full-stack trivia application. The back-end will shared across DevMountain so don't put anything inappropriate or offensive on there.
+
+Live example: <a href="https://practiceapi.devmountain.com/trendingTrivia/">Click Me!</a>
+
+## API Reference
+
+You can find the API documentation for all the endpoints here : https://practiceapi.devmountain.com/
+
+## Requirement 1
 
 ### Summary
 
-Today we want you to write a trivia application!  
-We have created a back-end that you can hit to store and share data.
-You'll be sharing the back-end so don't put anything inappropriate or offensive in there.
+Trivia questions should be pulled from the API and then shown on the screen.
 
-### Live example
+### Details
 
-You can find a live working copy of what you will be building here :
+Data will be sent in pages from the API. Remember: a page of data is a small slice of all the questions on the server. IE - you will only get 10 at a time.
 
-https://practiceapi.devmountain.com/trendingTrivia/
+A user should be able to click next page to get the next 10 questions, and previous page to get to the previous 10 questions.
 
-#### API Reference
+<img src="https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot1.jpg" />
 
-You can find the API documentation for all the endpoints here :
+## Requirement 2
 
-https://practiceapi.devmountain.com/
+### Summary
 
+Questions should be marked for correct and incorrect answers.
 
-
-### Requirements
-
-This app is all about trivia questions.
-
-
-#### 1. You will need to get trivia questions from the server and show them on the screen.
-
-You will get the data in pages. `Remember: a page of data is a small slice of all the questions on the server. IE - you will only get 10 at a time`
-
-1b. You will need to let the user click next page to get the next 10 questions, and previous page to get the previous 10 questions.
-
-![Image of Project](https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot1.jpg)
-
-
-#### 2. All questions are multiple choice.
+### Details
 
 When the user selects an answer highlight the question card:
 - Red for incorrect
 - Green for correct 
 
-![Image of Higlighting](https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot3.jpg)
+<img src="https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot3.jpg" />
 
+## Requirement 3
 
-#### 3. Filters
+### Summary
 
-The user should be able to filter by:
-* all questions
-* easy, medium and hard diffuculty
-* by animal
+Users should be able to filter questions.
+
+### Details
+
+* A user should be able to filter by:
+  * all questions
+  * easy, medium, and hard diffuculty questions
+  * Questions about a specific animal
 
 Make the `Search by Animal` button trigger whether the animal name input box is visible or not.
+Make the input box filter all questions on the screen, and only the questions on the screen.
 
-Make the input box it filter all questions on the screen, and only the questions on the screen.
+<img src="https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot4.jpg" />
 
+## Requirement 4
 
-![Image of Filters](https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot4.jpg)
+### Summary
 
+Functionality for editing/deleting questions.
 
-#### 4. Edit & Delete
+### Details
 
-Add a gear to every question. The icon is found in the `styes/assets` folder.
+* Add a gear to every question. The icon is found in the `styes/assets` folder.
+  * When the gear is clicked for a question, it needs to open the edit modal, and populate the modal with that questions data.
+  * The modal will allow users to edit and delete questions.
+* in main.css search for `ALERTDELETEME` and remove the line it is on.  This will make the modal appear.
+  * The edit modal is already in the index.html file.  You will need to use ng-show or ng-hide to make it appear when the user clicks the gear icon.
+  * The edit modal should only show the `edit & delete question buttons` at the bottom, and should hide the `add question buttons`.  These two button groups are labeled in the index.html file.
+* Editing a question will PUT that question to the server.
+* Deleting a question will DELETE that question from the server.
 
-When the gear is clicked for a question, it needs to open the edit modal, and populate the modal with that questions data.
+<img src="https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot2.jpg" />
 
-The modal will allow users to edit and delete questions.
+## Requirement 5
 
-in main.css search for `ALERTDELETEME` and remove the line it is on.  This will make the modal appear.
+### Summary
 
-The edit modal is already in the index.html file.  You will need to use ng-show or ng-hide to make it appear when the user clicks the gear icon.
+Adding new questions to the application.
 
-The edit modal should only show the `edit & delete question buttons` at the bottom, and should hide the `add question buttons`.  These two button groups are labeled in the index.html file.
+### Details
 
-Editing a question will PUT that question to the server.
+* Add question will use the same modal as the edit.
+* The `add question buttons` need to be visible, and the `edit & delete question buttons` need to be hidden.
+* Add a question will post it to the server.
 
-Deleting a question will DELETE that question from the server.
+## Requirement 6
 
+### Summary
 
-![Image of Modal](https://github.com/DevMountain/trendingTrivia/blob/master/screenshot/screenshot2.jpg)
+Application styles.
 
-#### 5. Add question
+### Details.
 
-Add question will use the same modal as the edit.
+* We have put styles for everything in the styles folder, but you can choose make your own or use those.  Just make it look the same.
+* There some effects when hovering over a question, and over the gear.  Try to get those as well.
 
-The `add question buttons` need to be visible, and the `edit & delete question buttons` need to be hidden.
-
-Add a question will post it to the server.
-
-#### 6. Styling
-
-We have put styles for everything in the styles folder, but you can choose make your own or use those.  Just make it look the same.
-
-There some effects when hovering over a question, and over the gear.  Try to get those as well.
-
-#### 7. Black diamond
+## Black Diamond
 
 Remember the user's answers on local storage.
 
+## References
 
-### References
+### Data Structure
 
-#### Data Structure
+The data structure of a trivia question looks like:
 
-The data structure of a trivia question looks like this
-
-```
+```js
 {
   _id: {type: String}, (The API will add this for you, do not send it to the server)
   question: {type: String},
