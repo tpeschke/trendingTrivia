@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="triviaApp">
 
 <head>
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
       <input type="text" placeholder="Animal to search by">
     </div>
 
-    <!-- Questions go here -->
+    <ui-view></ui-view>
 
   </article>
 
@@ -81,7 +81,10 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
-  <script src="./app.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="mainService.js"></script>
+  <script src="app/questions/questions.js"></script>
 </body>
 
 </html>
